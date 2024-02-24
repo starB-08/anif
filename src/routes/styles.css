@@ -1,8 +1,25 @@
+:root{
+	--background-color: #fff;
+	--text-color:#222;
+	--main-color:#5A4FCF;
+}
 body{
-	margin: 0 10px 0 10px;
+	margin-left: 10px;
+	width: calc(100vw - 20px);
 	padding: 0;
+	background-color: var(--background-color);
+	
+}
+body.dark-mode{
+	--background-color: #222;
+	--text-color: #fff;
 }
 html{
-	overflow: hidden;
-	background-color: #ffffff;
+	overflow-x: hidden;
+}
+span, a, h1, h2, h3, h4, h5, h6, button{
+	color: var(--text-color);
+}
+::-webkit-scrollbar{
+	display: none;
 }

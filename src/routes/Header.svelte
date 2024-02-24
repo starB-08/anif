@@ -1,12 +1,21 @@
 <script>
-    import logo from '$lib/images/logo_w.name_Light.png'
+    import lightLogo from '$lib/images/logo_w.name_Light.png'
+    import darkLogo from '$lib/images/logo_w.name_Dark.png'
+    
+
+    var isDark = false;
+    function themeToggle(){
+        window.document.body.classList.toggle('dark-mode');
+        isDark = !isDark;
+        document.querySelector('#logoImg').src = isDark? darkLogo : lightLogo;
+    }
     
 </script>
 
 <header>
     <div id="top">
         <div class="logo">
-            <img src="{logo}" alt="logo" height="100%">
+            <img id="logoImg" src="{lightLogo}" alt="light-logo" height="100%">
         </div>
         <ul>
             <li><a id="homeAnchor" href="/">home</a></li>
@@ -14,32 +23,39 @@
             <li><a id="projectsAnchor" href="/projects">projects</a></li>
 
         </ul>
+        <button id="darkThemeToggle" on:click={themeToggle}>D</button>
     </div>
 </header>
 
 <style>
     #top{
         display: flex;
+        width: inherit;
         flex-direction: row;
+    }
+    #darkThemeToggle{
+        width: 30px;
+        height: 30px;
     }
     header{
         width: calc(100vw - 20px);
         height: 40px;
         display: flex;
+        top: 0;
         justify-content: space-between;
-        background-color: #ffffff;
+        background-color: var(--background-color);
+        margin: 0 0 0 0;
     }
     .logo{
-        width:30vw;
+        width:30%;
         height: 100%;
     }
     ul{
         list-style: none;
         display: flex;
-        width: 70vw;
+        width: calc(70% - 30px);
+        margin: 0;
         justify-content: space-around;
-        margin: 20px 0 0 0;
-        transform: translateY(-50%);
         align-self: flex-end;
     }
     header ul li{
@@ -50,8 +66,11 @@
     }
     a{
         text-decoration: none;
-        color: #222222;
         font-size: 18px;
+    }
+    
+    *{
+        background-color: var(--background-color);
     }
     
     

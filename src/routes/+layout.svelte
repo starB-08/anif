@@ -3,6 +3,8 @@
 </script>
 <style>
 	@import './styles.css';
+	
+	
 </style>
 <Header />
-<slot></slot>
+<slot ></slot>
