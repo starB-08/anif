@@ -4,7 +4,11 @@
 <style>
 	@import './styles.css';
 	
-	
+	section :global(> :first-child){
+		margin-top: 40px;
+	}
 </style>
 <Header />
-<slot ></slot>
+<section>
+	<slot ></slot>
+</section>
