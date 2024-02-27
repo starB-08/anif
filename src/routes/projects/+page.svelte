@@ -4,10 +4,14 @@
 <script>
     import Project from './Project.svelte'
     import welcomeImg from '$lib/images/welcome/project.png'
+    import arrDown from '$lib/images/icons/icon-arrDown.png'
 </script>
 <div class="welcome">
-    <a href="#projects" id="showMore">hi</a>
-    <img src="{welcomeImg}" alt="">
+    <a href="#projects" id="showMore">
+        <span>show more</span>
+        <img src="{arrDown}" alt="arrDown" id="arrDown">
+    </a>
+    <img src="{welcomeImg}" alt="welcome">
 </div>
 <div id="projects">
     <div class="prjList">
@@ -22,32 +26,51 @@
         <Project class="prj" title="PROJECT9" subtitle="this is example"></Project>
         <Project class="prj" title="PROJECT10" subtitle="this is example"></Project>
         <Project class="prj" title="PROJECT11" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT12" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT13" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT14" subtitle="this is example"></Project>
+
 
     </div>
 </div>
 <style>
-    #projects{
-        margin-top: calc(100vh + 10px);
+    
+    #arrDown{
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 50%;
+        top: calc(85vh + 30px);
+        transform: translate(-50%,0);
+        margin: 0;
+        padding: 0;
+        filter: brightness(0) invert();
     }
-    #showMore{
+    #showMore span{
         position: absolute;
         z-index: 0;
         text-decoration: none;
         font-size: 24px;
         left: 50%;
         top: 85vh;
-        transform: translate(-50% 0 0);
+        transform: translate(-50%,0);
+        color: #ffffff;
+    }
+    #projects{
+        margin-top: calc(100vh + 10px);
+        display: flex;
+        justify-content: center;
     }
     .prjList{
-        width: auto;
+        width: max-content;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        
     }
     .prj{
-        position: relative;
-        display: inline-block;
+        flex: 0 0 auto;
     }
+    
     .welcome{
         position: absolute;
         top: -40px;
@@ -59,5 +82,13 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+    @media(max-width: 720px){
+        .welcome{
+            display: none;
+        }
+        #projects{
+            margin-top: 40px;
+        }
     }
 </style>
