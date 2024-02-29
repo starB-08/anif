@@ -1,3 +1,10 @@
+<script>
+	import { onMount } from 'svelte';
+    import {count} from '../stores'
+    onMount(function(){
+        count.update(n => true)
+    })
+</script>
 <svelte:head>
 	<title>[anif] - About</title>
 </svelte:head>

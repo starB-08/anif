@@ -3,16 +3,24 @@
     import darkLogo from '$lib/images/logo_w.name_Dark.png'
     import tranLogo from'$lib/images/logo_w.name_Trans.png'
     import { onMount } from 'svelte';
-    
+    import {count} from './stores'
     let isDark = false;
     let header;
     let logoImg;
     let logoTop;
+    let isTransPage;
+    const unSubscribe = count.subscribe(function(value){
+        isTransPage = value;
+    })
+    
     onMount(function(){
         header = document.querySelector('header');
         logoImg = document.querySelector('#logoImg');
         logoTop = document.querySelector('#logoTop');
         logoImg.src = (isDark? darkLogo : lightLogo);
+        if(!isTransPage){
+            header.classList.remove('clear');
+        }
 
     })
 
@@ -26,17 +34,17 @@
     
 
     function scroll(){
+        if(!isTransPage) return;
         if(scrollY <= 100){
             header.classList.add('clear');
-            logoImg.style.opacity = 0;
-            logoTop.style.opacity = 1;
+            
 
         }else{
             header.classList.remove('clear');
-            logoImg.style.opacity = 1;
-            logoTop.style.opacity = 0;
+            
         }
     }
+    
     
 </script>
 <svelte:window bind:scrollX={windowX} bind:scrollY={windowY} on:scroll={scroll}></svelte:window>
@@ -104,6 +112,19 @@
     }
     header, header *{
         transition: all 0.5s;
+    }
+    header.clear #logoImg{
+        opacity: 0;
+    }
+    header.clear #logoTop{
+        opacity: 1;
+    }
+
+    header:not(.clear) #logoImg{
+        opacity: 1;
+    }
+    header:not(.clear) #logoTop{
+        opacity: 0;
     }
     
     @keyframes -global-header-down {

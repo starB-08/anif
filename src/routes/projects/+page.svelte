@@ -5,6 +5,11 @@
     import Project from './Project.svelte'
     import welcomeImg from '$lib/images/welcome/project.png'
     import arrDown from '$lib/images/icons/icon-arrDown.png'
+    import { onMount } from 'svelte';
+    import {count} from '../stores'
+    onMount(function(){
+        count.update(n => true)
+    })
 </script>
 <div class="welcome">
     <a href="#projects" id="showMore">
@@ -75,9 +80,7 @@
         flex-wrap: wrap;
         
     }
-    .prj{
-        flex: 0 0 auto;
-    }
+    
     
     .welcome{
         position: absolute;
