@@ -7,6 +7,12 @@
 	section :global(> :first-child){
 		margin-top: 40px;
 	}
+
+	@media(max-width:720px){
+		section :global(> :first-child){
+		margin-top: 30px;
+	}
+	}
 </style>
 <Header />
 <section>

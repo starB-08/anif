@@ -29,6 +29,14 @@
         <Project class="prj" title="PROJECT12" subtitle="this is example"></Project>
         <Project class="prj" title="PROJECT13" subtitle="this is example"></Project>
         <Project class="prj" title="PROJECT14" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT15" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT16" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT17" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT18" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT19" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT20" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT21" subtitle="this is example"></Project>
+        <Project class="prj" title="PROJECT22" subtitle="this is example"></Project>
 
 
     </div>
@@ -88,7 +96,8 @@
             display: none;
         }
         #projects{
-            margin-top: 40px;
+            margin-top: 20px;
         }
+
     }
 </style>

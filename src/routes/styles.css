@@ -34,3 +34,14 @@ span, a, h1, h2, h3, h4, h5, h6, button,div{
 ::-webkit-scrollbar{
 	display: none;
 }
+
+
+@media(max-width: 720px){
+	body{
+		transition: all, 0s;
+
+	}
+	::-webkit-scrollbar{
+		display: none;
+	}
+}
