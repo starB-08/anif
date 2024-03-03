@@ -34,12 +34,11 @@
     
 
     function onScroll(){
-        if(!isTransPage) return;
         if(scrollY <= 100){
-            header.classList.add('clear');
+            setClearHeader(header);
             
         }else{
-            header.classList.remove('clear');
+            setClearHeader(header,false)
             
         }
     }
