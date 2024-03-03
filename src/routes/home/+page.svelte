@@ -7,7 +7,10 @@
         setClearHeader(document.querySelector('header'))
     })
 </script>
+
 <svelte:head>
-	<title>[anif] - About</title>
+	<title>[anif] - Home</title>
 </svelte:head>
-<h1>THIS IS ABOUT</h1>
+<h1>THIS IS HOME PAGE</h1>
+
+<h1>1</h1><br><h1>1</h1><br><h1>1</h1><br><h1>1</h1><br><h1>1</h1><br><h1>1</h1><br><h1>1</h1><br><h1>1</h1><br><h1>1</h1><br><h1>1</h1><br><h1>1</h1><br>

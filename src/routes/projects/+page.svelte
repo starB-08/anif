@@ -7,8 +7,11 @@
     import arrDown from '$lib/images/icons/icon-arrDown.png'
     import { onMount } from 'svelte';
     import {count} from '../stores'
+    import {setClearHeader} from '../Header.js'
+
     onMount(function(){
-        count.update(n => true)
+        count.update(n => true);
+        setClearHeader(document.querySelector('header'))
     })
 </script>
 <div class="welcome">

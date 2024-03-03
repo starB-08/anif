@@ -1,44 +1,43 @@
-<script>
+<script contextmenu="module">
     import lightLogo from '$lib/images/logo_w.name_Light.png'
     import darkLogo from '$lib/images/logo_w.name_Dark.png'
     import tranLogo from'$lib/images/logo_w.name_Trans.png'
     import { onMount } from 'svelte';
     import {count} from './stores'
+    import {navigating} from '$app/stores'
+    import { setClearHeader} from './Header'
     let isDark = false;
     let header;
-    let logoImg;
-    let logoTop;
+    let windowX, windowY
     let isTransPage;
+
     const unSubscribe = count.subscribe(function(value){
         isTransPage = value;
     })
-    
-    onMount(function(){
-        header = document.querySelector('header');
-        logoImg = document.querySelector('#logoImg');
-        logoTop = document.querySelector('#logoTop');
-        logoImg.src = (isDark? darkLogo : lightLogo);
-        if(!isTransPage){
-            header.classList.remove('clear');
-        }
 
+    onMount(function(){//on load
+        header = document.querySelector('header');
+        logoImg.src = (isDark? darkLogo : lightLogo);
+        
     })
+    $: if($navigating){//on page change
+        
+    }
+    
 
     function themeToggle(){
         window.document.body.classList.toggle('dark-mode');
         isDark = !isDark;
         logoImg.src = isDark? darkLogo : lightLogo;
     }
-    let windowX, windowY
     
     
 
-    function scroll(){
+    function onScroll(){
         if(!isTransPage) return;
         if(scrollY <= 100){
             header.classList.add('clear');
             
-
         }else{
             header.classList.remove('clear');
             
@@ -47,15 +46,15 @@
     
     
 </script>
-<svelte:window bind:scrollX={windowX} bind:scrollY={windowY} on:scroll={scroll}></svelte:window>
-<header class="clear">
+<svelte:window bind:scrollX={windowX} bind:scrollY={windowY} on:scroll={onScroll}></svelte:window>
+<header>
     <div id="top">
         <div class="logo">
             <img id="logoImg" src="{lightLogo}" alt="logo">
             <img id="logoTop" src="{tranLogo}" alt="logo-top">
         </div>
         <ul>
-            <li><a id="homeAnchor" href="/">home</a></li>
+            <li><a id="homeAnchor" href="/home">home</a></li>
             <li><a id="aboutAnchor" href="/about">about</a></li>
             <li><a id="projectsAnchor" href="/projects">projects</a></li>
 
@@ -107,7 +106,7 @@
     :global(.clear){
         background-color: rgba(var(--background-rgb),0);
     }
-    .clear *{
+    header.clear ul li a{
         color: #ffffff;
     }
     header, header *{

@@ -1,12 +1,7 @@
-<script>
-	import { onMount } from 'svelte';
-    import {count} from './stores'
-    onMount(function(){
-        count.update(n => false)
-    })
+<script >
+    import {goto} from '$app/navigation'
+    
+    
 </script>
 
-<svelte:head>
-	<title>[anif] - Home</title>
-</svelte:head>
-<h1>THIS IS HOME PAGE</h1>
+<svelte:window on:load={goto('/home',{replaceState: true})}></svelte:window>
