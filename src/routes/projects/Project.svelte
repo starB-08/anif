@@ -64,7 +64,7 @@
         }
 
         .prjTitle{
-            font-size: 22px;
+            font-size: 18px;
             color: var(--text-color);
         }
 
