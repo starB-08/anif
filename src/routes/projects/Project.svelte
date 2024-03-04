@@ -67,11 +67,11 @@
         .prjTitle{
             font-size: 18px;
             position: absolute;
-            top: 7px;
+            top: 5px;
         }
         .prjSubTitle{
             position: absolute;
-            bottom: 7px;
+            bottom: 5px;
         }
 
         
