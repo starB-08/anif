@@ -16,6 +16,5 @@ export function setClearHeader(header, notTrans = true){
     }else if(header?.classList?.contains('clear')){
         header?.classList?.remove('clear');
     }
-    console.log(header.classList.contains('clear'));
 
 }

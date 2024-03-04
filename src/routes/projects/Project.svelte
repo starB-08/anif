@@ -45,6 +45,7 @@
             height: 40px;
             border-radius: 6px;
             display: flex;
+            position: relative;
         }
         .prjBox:hover{
             background-color: var(--prjBox-hover-color);
@@ -65,14 +66,15 @@
 
         .prjTitle{
             font-size: 18px;
-            color: var(--text-color);
+            position: absolute;
+            top: 7px;
+        }
+        .prjSubTitle{
+            position: absolute;
+            bottom: 7px;
         }
 
-        .prjSubTitle{
-            color: #bbb;
-            font-weight: 300;
-            font-size: 16px;
-        }
+        
     }
     
 </style>
