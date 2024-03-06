@@ -18,3 +18,11 @@ export function setClearHeader(header, notTrans = true){
     }
 
 }
+/**
+ * 
+ * @param {HTMLElement} sidebar 
+ */
+export function toggleSidebar(sidebar){
+    sidebar.classList.toggle('hide');
+    document.querySelector('#sidePannelbtn')?.classList.toggle('hide');
+}

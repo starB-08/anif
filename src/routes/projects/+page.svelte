@@ -73,7 +73,7 @@
         color: #ffffff;
     }
     #projects{
-        margin-top: calc(100vh + 10px);
+        /* margin-top: calc(100vh + 10px); */
         display: flex;
         justify-content: center;
     }

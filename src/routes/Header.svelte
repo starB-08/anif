@@ -4,12 +4,14 @@
     import tranLogo from'$lib/images/logo_w.name_Trans.png'
     import { onMount } from 'svelte';
     import {count} from './stores'
-    import {navigating} from '$app/stores'
     import { setClearHeader} from './Header'
+    import {toggleSidebar} from './Header'
+
     let isDark = false;
     let header;
     let windowX, windowY
     let isTransPage;
+    let sideBar;
 
     const unSubscribe = count.subscribe(function(value){
         isTransPage = value;
@@ -18,11 +20,10 @@
     onMount(function(){//on load
         header = document.querySelector('header');
         logoImg.src = (isDark? darkLogo : lightLogo);
+        sideBar = document.querySelector('#sidebar');
         
     })
-    $: if($navigating){//on page change
-        
-    }
+    
     
 
     function themeToggle(){
@@ -59,7 +60,7 @@
 
         </ul>
         <button id="darkThemeToggle" on:click={themeToggle}>D</button>
-        <button id="sidePannel">=</button>
+        <button id="sidePannelbtn" on:click={toggleSidebar(sideBar)}>=</button>
 
     </div>
 </header>
@@ -83,8 +84,9 @@
         background-color: #bbb;
         margin-top: 5px;
         z-index: 100;
-
     }
+
+    
     header{
         width: calc(100vw + 20px);
         height: 40px;
@@ -92,7 +94,7 @@
         left: -10px;
         margin: 0 0 0 0;
         position: fixed;
-        z-index: 99;
+        z-index: 90;
         transition: all 0.5s;
         backdrop-filter: blur(20px);
     }
@@ -192,13 +194,14 @@
             background: var(--main-color);
     }
 
-    #sidePannel{
+    #sidePannelbtn{
         display: none;
     }
 
     @media(max-width: 720px){
         header{
             height: 30px;
+            position: fixed;
         }
         .logo{
             height: 30px;
@@ -211,17 +214,22 @@
         #darkThemeToggle{
             display: none;
         }
-        #sidePannel{
-        display: block;
-        width: 30px;
-        height: 30px;
-        padding: 0;
-        border: none;
-        border-radius: 6px;
-        background-color: #bbb;
-        margin-top: 5px;
-        z-index: 100;
-    }
+        #sidePannelbtn{
+            width: 25px;
+            height: 25px;
+            padding: 0;
+            border: none;
+            border-radius: 6px;
+            background-color: #bbb;
+            margin-top: 5px;
+            z-index: 100;
+        }
+        #sidePannelbtn:not(.hide){
+            display: block;
+        }
+        #sidePannelbtn.hide{
+            display: none;
+        }
     }
     
     
